@@ -1,0 +1,50 @@
+@import 'color';
+%center-h {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pomo-timer {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.pomoSession {
+    @extend %center-h;
+    color: $line1;
+    height: 40px;
+    top: 250px;
+
+}
+
+.canvas-container {
+    width: 200px;
+    height: 200px;
+    @extend %center-h;
+    top: 0px;
+
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+    }
+}
+
+.pomo-countdown {
+    @extend %center-h;
+    top: 320px;
+    border-radius: 10px;
+    width: 150px;
+    height: 70px;
+    box-sizing: border-box;
+
+    font-size: 50px;
+    font-weight: lighter;
+    text-align: center;
+    color: $line1;
+    border: 1px solid $line1;
+    box-shadow: 3px 3px 5px $shadow;
+}
+

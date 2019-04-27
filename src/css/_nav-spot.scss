@@ -1,0 +1,26 @@
+.spot {
+    top: 18px;
+    left: 18px;
+
+    &, &:before, &:after {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: $line1;
+        box-shadow: 3px 3px 4px $shadow;
+    }
+
+    &:before {
+        content: "";
+        top: 0;
+        left: -12px;
+    }
+
+    &:after {
+        content: "";
+        top: 0;
+        left: 12px;
+    }
+
+}

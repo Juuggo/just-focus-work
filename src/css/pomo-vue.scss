@@ -1,0 +1,43 @@
+@import 'color';
+@import 'frame';
+
+#component-pomo {
+    @include frame($main2, '../../image/timer-fill.png');
+    color: $line1;
+}
+
+.pomo-main {
+    margin-right: 30px;
+    height: calc(100% - 80px);
+    position: relative;
+
+    &>* {
+        position: absolute;
+    }
+    .pomo-today {
+        height: 50px;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .pomo-timer {
+        width: 100%;
+        height: 390px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .pomo-control {
+        top: 60px;
+        width: 200px;
+        height: 200px;
+        top: calc(50% - 195px);
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        opacity: .3;
+    }
+    .pomo-settings {
+        width: 100%;
+        bottom: 20px;
+    }
+}
+

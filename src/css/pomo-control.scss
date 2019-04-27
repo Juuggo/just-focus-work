@@ -1,0 +1,19 @@
+@import 'color';
+
+.pomo-control {
+    background: $line1;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    // box-shadow: 5px 5px 3px $shadow;
+    cursor: pointer;
+    color: $main2;
+}
+
+button.pomo-control:active {
+    transform: translateX(-50%) translateY(10px);
+    width: 180px;
+    height: 180px;
+    box-shadow: inset 5px 5px 10px $shadow, inset -5px -5px 10px $shadow;
+
+}

@@ -1,0 +1,22 @@
+@import './color';
+
+.newTodo {
+    height: 100%;
+    width: calc(100% - 45px);
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid $line1;
+    border-radius: 10px;
+    color: $line1;
+    font-size: 18px;
+    background: transparent;
+
+    &::-webkit-input-placeholder {
+        color: $main1-darker;
+        opacity: .5;
+    }
+
+    &:focus {
+        box-shadow: 5px 5px 5px $shadow;
+    }
+}

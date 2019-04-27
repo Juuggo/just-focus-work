@@ -1,0 +1,23 @@
+@import './color';
+@import './darker-cover';
+
+.setting-box {
+    position: absolute;
+    width: 200px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    background-color: $line1;
+    padding: 10px;
+    text-align: center;
+    color: $main2;
+    z-index: 2;
+
+    &>* {
+        margin: 10px;
+    }
+    .setting-title {
+        font-size: 24px;
+    }
+}

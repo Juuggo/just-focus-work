@@ -1,0 +1,22 @@
+@mixin frame($color, $img) {
+    flex: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    padding: 30px 0 30px 30px;
+    color: $color;
+    background-color: $color;
+
+    header {
+        height: 80px;
+        margin-right: 30px;
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            margin: auto;
+            background-image: url($img);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
