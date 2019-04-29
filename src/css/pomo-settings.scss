@@ -1,5 +1,6 @@
 @import './color';
 @import './darker-cover';
+@import './card-animation';
 
 .setting-box {
     position: absolute;
@@ -13,6 +14,8 @@
     text-align: center;
     color: $main2;
     z-index: 2;
+
+    @include card-animation('settings');
 
     &>* {
         margin: 10px;

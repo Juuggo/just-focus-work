@@ -3,14 +3,14 @@ export default {
     fetch: function() {
         let storageData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
         let todos = storageData.todos ? storageData.todos : [];
-        let todoStatic = storageData.todoStatic ? storageData.todoStatic : {};
+        let dailyCompleted = storageData.dailyCompleted ? storageData.dailyCompleted : {};
         // todos.forEach(function(todo, index) {
             // todo.id = index;
         // })
         // this.uid = todos.length;
         let obj = {};
         obj.todos = todos;
-        obj.todoStatic = todoStatic;
+        obj.dailyCompleted = dailyCompleted;
         return obj;
     },
     save: function(type, value) {

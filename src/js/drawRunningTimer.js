@@ -1,5 +1,4 @@
 function drawCircle() {
-    console.log('yes');
     var canvas = document.getElementById('circle');
     var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
@@ -17,12 +16,10 @@ function drawCircle() {
         ctx.lineTo(100, 20);
         ctx.arc(100, 100, 80, Math.PI*(-1/2), Math.PI*(-1/2+2/60*sec), false);
         sec++;
-        console.log("sec: ", sec);
         ctx.fill();
     }, 1000);
 
     canvas.addEventListener('click', function() {
-        console.log('Click canvas');
     });
 }
 

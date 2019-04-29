@@ -1,5 +1,5 @@
 <template>
-    <input class="newTodo" type="text" autofocus placeholder="新建待办事项" v-model="newTodo" @keyup.enter="addTodo">
+    <input class="newTodo" type="text" placeholder="新建待办事项" v-model="newTodo" @keyup.enter="addTodo">
 </template>
 
 <script>

@@ -3,9 +3,9 @@
         <header>
             <div class="icon"></div>
         </header>
+        <pomo-today class="topbar pomo-today" :today-statistics="todayStatistics"
+        ></pomo-today>
         <div class="pomo-main">
-            <pomo-today class="pomo-today" :today-statistics="getPomoStatic('today')"
-            ></pomo-today>
             <pomo-timer class="pomo-timer"
                 :minutes="minutes" :seconds="seconds"
                 :pomo-session="pomoSession"
@@ -20,6 +20,7 @@
             <pomo-settings 
                 :init-focus="initFocus"
                 :init-rest="initRest"
+                :is-settings-open="isSettingsOpen"
                 @change="changeInit"
                 @toggle-settings="toggleSettings"
                 v-show="isSettingsOpen"
@@ -38,6 +39,7 @@
     import Vmouse from './Vmouse.js';
     import drawRunningTimer from './drawRunningTimer.js';
     import { pomoPropList, pomoStorage } from './pomoStorage.js';
+    import getStatistics from '../../js/getStatistics.js';
 
     // 自定义指令longpress 和 click
     // click 使用自定义指令是为了longpress时不触发click
@@ -61,6 +63,7 @@
             }
             obj.isSettingsOpen = false;
             obj.isTimerRunning = false;
+            obj.todayStatistics = getStatistics().pomoToday;
             return obj;
         },
         mounted: function() {
@@ -173,23 +176,6 @@
                 let minute = Math.floor((sec%3600)/60);
                 let second = Math.floor(sec%60);
                 return {'date': date, 'hour': hour, 'minute': minute, 'second': second};
-            },
-            getPomoStatic: function(filter) {
-                let currentDate = new Date();
-                if (filter === 'today') {
-                    let date = currentDate.toLocaleDateString();
-                    let sec = this.dailySeconds[date] ? this.dailySeconds[date] : 0;
-                    return this.formatStatic(date, sec);
-                } else if (filter === 'week') {
-                    let weekDates = getWeekDates(currentDate);
-                    let weekStatic = [];
-                    let _this = this;
-                    weekDates.forEach(function(date) {
-                        let sec = _this.dailySeconds[date] ? _this.dailySeconds[date] : 0;
-                        weekStatic.push(_this.formatStatic(date, sec));
-                    }) 
-                    return weekStatic;
-                }
             },
         },
         computed: {

@@ -5,7 +5,7 @@
     outline: none;
     border: none;
     border-radius: 50%;
-    // box-shadow: 5px 5px 3px $shadow;
+    // box-shadow: 5px 5px 3px $shadow2;
     cursor: pointer;
     color: $main2;
 }
@@ -14,6 +14,6 @@ button.pomo-control:active {
     transform: translateX(-50%) translateY(10px);
     width: 180px;
     height: 180px;
-    box-shadow: inset 5px 5px 10px $shadow, inset -5px -5px 10px $shadow;
+    box-shadow: inset 5px 5px 10px $shadow2, inset -5px -5px 10px $shadow2;
 
 }

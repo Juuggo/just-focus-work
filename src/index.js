@@ -24,9 +24,9 @@ var app = new Vue({
 document.addEventListener('DOMContentLoaded', function() {
     Notification.requestPermission().then(function(permission) {
         if (permission === 'granted') {
-            console.log('permit notification');
+            console.log('允许通知');
         } else if(permission === 'denied') {
-            console.log('denied notification');
+            console.log('拒绝了推送通知');
         }
     })
 })

@@ -1,7 +1,8 @@
 <template>
     <div class="pomo-settings">
         <div @click="closeSettings" class="darker-cover"></div>
-        <div class="setting-box">
+        <div class="setting-box"
+            :class="{ 'card-show' : isSettingsOpen }">
             <div class="setting-title">番茄设置</div>
             <div class="setting-initFocus">
                 <p class="setting-heading">专注时长：{{ initFocus }} 分钟</p>
@@ -11,6 +12,7 @@
                 <p class="setting-heading">休息时长：{{ initRest }} 分钟</p>
                 <input type="range" min="1" max='30' :value="initRest" @change="change('rest')">
             </div>
+            <div>（左右键可微调）</div>
         </div>
     </div>
 </template>
@@ -20,6 +22,7 @@
         props: [
             'initFocus',
             'initRest',
+            'isSettingsOpen'
         ],
         methods: {
             change: function(type) {

@@ -1,0 +1,141 @@
+@import '../../css/color';
+@import '../../css/frame';
+
+#component-statistics {
+    @include frame($main3, '../../image/chart-fill.png');
+    color: $line1;
+}
+
+.topbar {
+    height: 40px;
+    margin-right: 30px;
+    position: relative;
+
+    .refresh {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+        width: 100%;
+
+        background: none;
+        border: 1px solid $line1;
+        border-radius: 10px;
+        outline: none;
+        cursor: pointer;
+        color: $main3-darker;
+        font-size: 18px;
+        padding: 0 10px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div {
+            opacity: .8;
+        }
+
+        img {
+            width: 25px;
+            height: 25px;
+            transition: all .5s;
+        }
+        &:active {
+            box-shadow: inset 1px 1px 5px $shadow3;
+        }
+    }
+}
+
+.statistics-main {
+    width: 100%;
+    height: calc(100% - 120px);
+    position: relative;
+    padding-top: 10px;
+
+    .statistics-scroll {
+        width: calc(100% - 1px);
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    &:after {
+        content: "";
+        width: 19px;
+        height: 100%;
+        position: absolute;
+        right: 0px;
+        top: 0;
+        background-color: $main3;
+    }
+}
+
+.data-container {
+    color: $main3;
+    background-color: $line1;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px $shadow3;
+    padding: 20px;
+    width: calc(100% - 10px);
+    margin: 20px 0;
+    position: relative;
+    box-sizing: border-box;
+
+    .title {
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    
+    .data-text {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+}
+
+.data-graph {
+    height: 140px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $main3;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+
+    .bar {
+        display: block;
+        background-color: $main3;
+        width: 10px;
+        transition: height .5s;
+        position: relative;
+
+        * {
+            position: absolute;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .show-on-hover {
+            display: none;
+            top: -20px;
+        }
+        .day {
+            position: absolute;
+            bottom: -20px;
+        }
+
+        &:hover {
+            border: 2px solid $main3;
+            .show-on-hover {
+                display: block;
+            }
+        }
+    }
+}

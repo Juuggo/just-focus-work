@@ -3,15 +3,17 @@
         <header>
             <div class="icon"></div>
         </header>
-        <div class="todo-topbar">
+        <div class="topbar">
             <todo-new class="todo-new" @addTodo="addTodo"></todo-new>
             <nav v-show="todos.length" v-cloak
                  @click="toggleNav">
                 <div class="spot"></div>
                 <div class="darker-cover" v-show="isNavOpen"></div>
                 <todo-filter class="todo-filter"
+                    :class="{ 'card-show' : isNavOpen }"
                     v-show="isNavOpen"
                     :visibility="visibility"
+                    :is-nav-open="isNavOpen"
                     :show="todos.length > remaining"
                     @removeCompleted="removeCompleted"
                 ></todo-filter>
@@ -44,6 +46,7 @@
     import todoTask from './todo-task.vue';
     import todoFilter from './todo-filter.vue';
     import Sortable from 'sortablejs';
+    import instructions from '../../js/instructions.js';
 
     var componentTodo = {
         data: function() {
@@ -51,12 +54,19 @@
                 todos: todoStorage.fetch().todos,
                 visibility: 'all',
                 editedTodo: null,
-                todoStatic: todoStorage.fetch().todoStatic,
+                dailyCompleted: todoStorage.fetch().dailyCompleted,
                 isNavOpen: false,
             }
         },
         mounted: function() {
+            let _this = this;
             this.enableDrag();
+            if (this.todos.length === 0 && 
+                JSON.stringify(this.dailyCompleted) === '{}') {
+                instructions.instructions.forEach(function(instruct) {
+                    _this.addTodo(instruct);
+                });
+            }
         },
         components: {
             todoNew,
@@ -108,14 +118,14 @@
                 completeDate = completeDate.toLocaleDateString();
                 if (todo.completed) {
                     todo.completeDate = completeDate;
-                    if (this.todoStatic[completeDate]) {
-                        this.$set(this.todoStatic, completeDate, this.todoStatic[completeDate]+1);
+                    if (this.dailyCompleted[completeDate]) {
+                        this.$set(this.dailyCompleted, completeDate, this.dailyCompleted[completeDate]+1);
                     } else {
-                        this.$set(this.todoStatic, completeDate, 1);
+                        this.$set(this.dailyCompleted, completeDate, 1);
                     }
                 } else {
                     todo.completeDate = null;
-                    this.$set(this.todoStatic, completeDate, this.todoStatic[completeDate]-1);
+                    this.$set(this.dailyCompleted, completeDate, this.dailyCompleted[completeDate]-1);
                 };
             },
             toggleNav: function() {
@@ -143,15 +153,16 @@
                 },
                 deep: true,
             },
-            todoStatic: {
-                handler: function(todoStatic) {
-                    todoStorage.save('todoStatic', todoStatic);
+            dailyCompleted: {
+                handler: function(dailyCompleted) {
+                    todoStorage.save('dailyCompleted', dailyCompleted);
                 },
                 deep: true,
             },
             filteredTodos: {
                 handler: function() {
                     this.enableDrag();
+                    
                 },
                 deep: true,
             }

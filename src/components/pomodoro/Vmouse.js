@@ -14,11 +14,9 @@ export default function Vmouse(el, binding, vNode) {
     })
     this.el.addEventListener('touchstart', (e)=>{
         this.start(e);
-        console.log('start');
     })
     this.el.addEventListener('touchend', (e)=>{
         this.end(e);
-        console.log('end');
     })
 }
 Vmouse.prototype = {
@@ -33,7 +31,6 @@ Vmouse.prototype = {
             if(!this.mouseUp) {
                 this.vNode.context.$emit('longpress-' + this.binding.value);
                 this.longPress = true;
-                console.log('emit longpress');
             }
         }, 1000);
     },
@@ -42,7 +39,6 @@ Vmouse.prototype = {
         if (!this.longPress && timePressed < 1000) {
             this.vNode.context.$emit('click-' + this.binding.value);
             this.mouseUp = true;
-            console.log('emit click');
         }
         clearTimeout(this.timeout);
         this.timeout = null;

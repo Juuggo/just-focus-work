@@ -1,15 +1,14 @@
 @import './color';
 @import './frame';
+@import './card-animation';
 
 #component-todo {
     @include frame($main1, '../../image/todo-fill.png');
 }
 
-.todo-topbar{
-    height: 40px;
+.topbar{
     margin-right: 30px;
     position: relative;
-    box-sizing: border-box;
 
     nav {
         @import "../../css/nav-spot";
@@ -53,7 +52,7 @@
             position: relative;
             border-radius: 10px;
             background-color: $line1;
-            box-shadow: 5px 5px 8px $shadow; 
+            box-shadow: 5px 5px 8px $shadow1; 
         }
     }
 

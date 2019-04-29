@@ -39,12 +39,13 @@
     width: 150px;
     height: 70px;
     box-sizing: border-box;
+    cursor: pointer; 
 
     font-size: 50px;
     font-weight: lighter;
     text-align: center;
     color: $line1;
     border: 1px solid $line1;
-    box-shadow: 3px 3px 5px $shadow;
+    box-shadow: 3px 3px 5px $shadow2;
 }
 

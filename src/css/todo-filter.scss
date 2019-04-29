@@ -1,8 +1,10 @@
 @import './color';
+@import './card-animation';
 
 ul {
     cursor: default;
     overflow: hidden;
+    @include card-animation('nav');
 }
 
 li {
