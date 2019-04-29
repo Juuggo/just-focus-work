@@ -2,7 +2,7 @@
 ## Introduciton:
 The repository holds the code of a website introduced as follows. 
 
-[Click here to visit the site](just-focus-work.juuggo.com)
+[Click here to visit the site](https://just-focus-work.juuggo.com)
 
 I didn't get a satisfied task and pomodoro tool as I mostly work with computer, especially with web browers (Though there're all kinds of mobile time management app). 
 
@@ -12,8 +12,7 @@ It consists of the three parts:
 * Pomodoro Timer
 * Weekly tatistics
 
-All datas are stored in your own browser and won't upload, so the privacy is fully guaranteed.
+All data are stored in your own browser and won't be uploaded, so the privacy is fully guaranteed.
 
 ## Preview: 
 ![Web preview](./src/image/website-preview.png)
-
